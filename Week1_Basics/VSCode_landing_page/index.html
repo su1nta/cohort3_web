@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+    <style type="text/css">
+        .mask-border {
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+    </style>
+</head>
+<body class="h-full w-full">
+    <div class="flex flex-col justify-center w-full h-full bg-zinc-900">
+        <div id="header" class="h-12 w-full px-32 flex space-around bg-zinc-900 sticky top-0 z-20">
+            <div class="w-2/3 h-full p-2 flex items-center gap-6">
+                <div id="logo" class="flex gap-2">
+                    <img src="./assets/vscode.png" alt="vscode" class="h-6 w-6 mt-1">
+                    <span class="text-xl font-semibold text-slate-200">Visual Studio Code</span>
+                </div>
+                <ul class="flex gap-4">
+                    <li><a href="" class="text-slate-300 text-md font-regular">Docs</a></li>
+                    <li><a href="" class="text-slate-300 text-md font-regular">Updates</a></li>
+                    <li><a href="" class="text-slate-300 text-md font-regular">Blog</a></li>
+                    <li><a href="" class="text-slate-300 text-md font-regular">API</a></li>
+                    <li><a href="" class="text-slate-300 text-md font-regular">Extensions</a></li>
+                    <li><a href="" class="text-slate-300 text-md font-regular">FAQ</a></li>
+                    <li><a href="" class="text-slate-300 text-md font-regular">GitHub Copilot</a></li>
+                </ul>
+            </div>
+            <div class="w-1/3 h-full p-2 flex items-center gap-2">
+                <div class="p-1 border-slate-300">
+                    <img src="./assets/theme-light.svg" alt="dark theme" class="h-5 w-5">
+                </div>
+                <div id="search" class="relative">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute w-4 h-4 top-2 left-2.5 text-slate-600">
+                        <path d="M9.27531 0C5.96189 0 3.27584 2.68606 3.27584 5.99947C3.27584 7.60086 3.90325 9.0557 4.92567 10.1316L0 15.0573L0.942726 16L5.94933 10.9934C6.90125 11.6286 8.04503 11.9989 9.27531 11.9989C12.5887 11.9989 15.2748 9.31289 15.2748 5.99947C15.2748 2.68606 12.5887 0 9.27531 0ZM4.60905 5.99947C4.60905 3.42237 6.69821 1.33322 9.27531 1.33322C11.8524 1.33322 13.9416 3.42237 13.9416 5.99947C13.9416 8.57658 11.8524 10.6657 9.27531 10.6657C6.69821 10.6657 4.60905 8.57658 4.60905 5.99947Z" fill="#9ba3b4"/>
+                    </svg>
+                    <input class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-700 rounded-md pl-8 pr-3 py-1 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                    placeholder="Search Docs" 
+                    />
+                </div>
+                <button class="py-1 px-4 bg-sky-400 rounded-md text-white font-medium">Download</button>
+            </div>
+        </div>
+        <hr class="w-full bg-zinc-800 border-zinc-800 sticky top-12">
+        <div id="content" class="mt-28 px-32 font-sans">
+            <div id="banner" class="flex items-center justify-center flex-col gap-6">
+                <span class="text-7xl font-bold text-slate-300 text-center leading-tight">Your Code Editor. <br> Redefined with AI.</span>
+                <div class="flex items-center justify-center flex-col gap-2">
+                    <div class="flex gap-4 text-slate-50 font-semibold">
+                        <button class="px-5 py-2 bg-sky-500 rounded">Download for Windows</button>
+                        <button class="px-3 py-2 bg-slate-800 rounded-md text-slate-300 border border-zinc-600 hover:border-zinc-400 hover:text-white font-semibold inline-flex">Get Copilot Free</button>
+                    </div>
+                    <span class="text-sm text-slate-300"><a class="underline text-sky-500">Web</a>, <a class="underline text-sky-500">Insiders edition</a>, or <a class="underline text-sky-500">other platforms</a></span>
+                </div>
+                <span id="license"></span>
+            </div>
+
+            <div id="hero" class="flex flex-col gap-4 items-center justify-center mt-4 relative">
+                <div class="w-full h-full p-10 rounded-md flex items-center justify-center">
+                    <img src="./assets/hero-background.webp" alt="hero_img" class="rounded-3xl bg-cover">
+                    <video poster="./assets/hero-poster-dark.webp" playsinline autoplay muted class="absolute rounded-lg">
+                        <source src="./assets/hero-dark-sm.webm" type="video/webm">
+                    </video>
+                </div>
+                <span class="text-2xl">
+                    <button class="text-slate-200 p-4 border-slate-400">Pause</button>
+                </span>
+            </div>
+
+            <div id="features" class="h-full w-full grid grid-cols-3 gap-10 mt-5">
+                <div class="bg-zinc-800 rounded-lg flex flex-col gap-4 p-5 border border-zinc-700">
+                    <span class="text-white flex flex-col gap-2 p-2">
+                        <h1 class="text-xl font-semibold text-slate-300">Choose the model that works for you</h2>
+                        <h2 class="font-semibold text-slate-500">Pick the model that works best for your project and team, including GPT 4o and Claude Sonnet.</h3>
+                    </span>
+                    <img src="./assets/f_choose-model-dark.webp" alt="" class="bg-cover">
+                </div>
+                <div class="bg-zinc-800 rounded-lg flex flex-col gap-4 p-5 border border-zinc-700">
+                    <span class="text-white flex flex-col gap-2 p-2">
+                        <h1 class="text-xl font-semibold text-slate-300">An expert on your codebase</h2>
+                        <h2 class="font-semibold text-slate-500">Copilot locally indexes your codebase to understand what’s relevant and supplements that context to interactions with Copilot.</h3>
+                    </span>
+                    <img src="./assets/f_multi-file-dark.webp" alt="" class="bg-cover">
+                </div>
+                <div class="bg-zinc-800 rounded-lg flex flex-col gap-4 p-5 border border-zinc-700">
+                    <span class="text-white flex flex-col gap-2 p-2">
+                        <h1 class="text-xl font-semibold text-slate-300">Personalized to your needs</h2>
+                        <h2 class="font-semibold text-slate-500">Copilot works the way you do. Customize Copilot's prompts with details about your team's workflows, tools, and projects.</h3>
+                    </span>
+                    <img src="./assets/f_instructions-dark.webp" alt="" class="bg-cover">
+                </div>
+            </div>
+
+            <div id="copilot_banner" class="h-full w-full mt-10 relative text-slate-300 font-bold">
+                <div class="absolute flex gap-4 space-between items-center z-10 top-0 left-0 bottom-0 right-0">
+                    <div class="p-10 text-4xl">
+                        <h1>Activate Copilot Free <br>in Visual Studio Code</h1>
+                    </div>
+                    <div class="absolute right-20 flex flex-col gap-2">
+                        <h1>No trial. No credit card required. Just your GitHub account.</h1>
+                        <span>
+                            <button class="px-3 py-2 bg-slate-800 rounded-md text-slate-300 border border-zinc-600 hover:border-zinc-400 hover:text-white font-semibold inline-flex">Get Copilot Free</button>
+                        </span>
+                    </div>
+                </div>
+                <img src="./assets/copilot-free-banner-bg-dark.webp" alt="" class="bg-cover rounded-lg relative">
+                <div class="absolute inset-0 rounded-lg border border-transparent bg-gradient-to-r from-sky-400 to-zinc-800 mask mask-border"></div>
+            </div>
+
+            <div id="more_copilot" class="flex mt-28 items-center justify-center">
+                <div class="w-2/5 text-slate-200">
+                    <span>
+                        <h1 class="px-5 py-5 text-3xl font-bold text-sky-50">Create faster</h1>
+                    </span>
+                    <span class="flex flex-col gap-4">
+                        <h2 class="pl-5 w-2/3 font-semibold text-sky-100">
+                            Describe what you want to build in natural language, and Copilot Edits takes care of the rest. Copilot Edits makes changes across files in your codebase with a UI designed for rapid iteration. It's the fastest way to add new functionality to your apps.
+                        </h2>
+                        <a class="text-sky-500 underline px-5">Build with Copilot Edits</a>
+                    </span>
+                    <span class="flex flex-col gap-4 mt-5">
+                        <h2 class="pl-5 w-2/3 font-semibold text-sky-100">
+                            Copilot Chat is an expert on your codebase, helping you to answer questions, explain code, and propose fixes. Chat is available wherever you need it - either as a dedicated sidebar panel or directly from within your code so you can stay in context.
+                        </h2>
+                        <a href="" class="text-sky-500 underline px-5">Get answers from Copilot Chat</a>
+                    </span>
+                </div>
+                <div class="w-3/5 bg-blue">
+                    <img src="./assets/swimlane-chat-dark.webp" alt="" class="rounded-2xl bg-cover">
+                </div>
+            </div>
+
+            <div id="code_efficiently" class="flex mt-28 items-center justify-center">
+                <div class="w-2/5 text-slate-200">
+                    <span>
+                        <h1 class="px-5 py-5 text-3xl font-bold text-sky-50">Code Efficiently</h1>
+                    </span>
+                    <span class="flex flex-col gap-4">
+                        <h2 class="pl-5 w-2/3 font-semibold text-sky-100">
+                            Copilot is your AI pair programmer infused directly into the editor. Just start typing, and Copilot will complete your thought by offering a completion on the current line or (sometimes) a whole new block of code. Just like a coworker, you have the flexibility to accept all, some, or none of Copilot's suggestions. Copilot supports a broad range of languages and frameworks.
+                        </h2>
+                        <a class="text-sky-500 underline px-5">Pair program with Copilot</a>
+                    </span>
+                </div>
+                <div class="w-3/5 bg-blue">
+                    <img src="./assets/completions-dark.webp" alt="" class="rounded-2xl bg-cover">
+                </div>
+            </div>
+
+            <div id="extensions" class="flex mt-28 items-center justify-center">
+                <div class="w-2/5 text-slate-200">
+                    <span>
+                        <h1 class="px-5 py-5 text-3xl font-bold text-sky-50">Code with Extensions</h1>
+                    </span>
+                    <span class="flex flex-col gap-4">
+                        <h2 class="pl-5 w-2/3 font-semibold text-sky-100">
+                            Extensions let you customize VS Code and Copilot with AI-powered features grounded securely in your team's data and workflows. Grab one from the gallery and add it to chat like @azure, or <a class="text-sky-500 underline">build your own Copilot extension</a> to power your team's unique scenarios.
+                        </h2>
+                    </span>
+                </div>
+                <div class="w-3/5 bg-blue flex flex-col items-center justify-center relative">
+                    <div class="grid gap-4 grid-cols-3 pb-10">
+                        <div class="bg-zinc-800 items-start gap-2 flex py-2 rounded-lg border border-slate-700 hover:cursor-pointer hover:border border-slate-400"><img src="./assets/python.svg" alt="" class="h-20 w-20"><div class="flex flex-col gap-2"><h1 class="text-slate-100 font-bold text-md">Python</h1><h2 class="text-sm text-slate-300 font-semibold">Adds rich language support for Python</h2></div></div>
+                        <div class="bg-zinc-800 items-start gap-2 flex py-2 rounded-lg border border-slate-700 hover:cursor-pointer hover:border border-slate-400"><img src="./assets/python.svg" alt="" class="h-20 w-20"><div class="flex flex-col gap-2"><h1 class="text-slate-100 font-bold text-md">Python</h1><h2 class="text-sm text-slate-300 font-semibold">Adds rich language support for Python</h2></div></div>
+                        <div class="bg-zinc-800 items-start gap-2 flex py-2 rounded-lg border border-slate-700 hover:cursor-pointer hover:border border-slate-400"><img src="./assets/python.svg" alt="" class="h-20 w-20"><div class="flex flex-col gap-2"><h1 class="text-slate-100 font-bold text-md">Python</h1><h2 class="text-sm text-slate-300 font-semibold">Adds rich language support for Python</h2></div></div>
+                        <div class="bg-zinc-800 items-start gap-2 flex py-2 rounded-lg border border-slate-700 hover:cursor-pointer hover:border border-slate-400"><img src="./assets/python.svg" alt="" class="h-20 w-20"><div class="flex flex-col gap-2"><h1 class="text-slate-100 font-bold text-md">Python</h1><h2 class="text-sm text-slate-300 font-semibold">Adds rich language support for Python</h2></div></div>
+                        <div class="bg-zinc-800 items-start gap-2 flex py-2 rounded-lg border border-slate-700 hover:cursor-pointer hover:border border-slate-400"><img src="./assets/python.svg" alt="" class="h-20 w-20"><div class="flex flex-col gap-2"><h1 class="text-slate-100 font-bold text-md">Python</h1><h2 class="text-sm text-slate-300 font-semibold">Adds rich language support for Python</h2></div></div>
+                        <div class="bg-zinc-800 items-start gap-2 flex py-2 rounded-lg border border-slate-700 hover:cursor-pointer hover:border border-slate-400"><img src="./assets/python.svg" alt="" class="h-20 w-20"><div class="flex flex-col gap-2"><h1 class="text-slate-100 font-bold text-md">Python</h1><h2 class="text-sm text-slate-300 font-semibold">Adds rich language support for Python</h2></div></div>
+                        <div class="bg-zinc-800 items-start gap-2 flex py-2 rounded-lg border border-slate-700 hover:cursor-pointer hover:border border-slate-400"><img src="./assets/python.svg" alt="" class="h-20 w-20"><div class="flex flex-col gap-2"><h1 class="text-slate-100 font-bold text-md">Python</h1><h2 class="text-sm text-slate-300 font-semibold">Adds rich language support for Python</h2></div></div>
+                        <div class="bg-zinc-800 items-start gap-2 flex py-2 rounded-lg border border-slate-700 hover:cursor-pointer hover:border border-slate-400"><img src="./assets/python.svg" alt="" class="h-20 w-20"><div class="flex flex-col gap-2"><h1 class="text-slate-100 font-bold text-md">Python</h1><h2 class="text-sm text-slate-300 font-semibold">Adds rich language support for Python</h2></div></div>
+                        <div class="bg-zinc-800 items-start gap-2 flex py-2 rounded-lg border border-slate-700 hover:cursor-pointer hover:border border-slate-400"><img src="./assets/python.svg" alt="" class="h-20 w-20"><div class="flex flex-col gap-2"><h1 class="text-slate-100 font-bold text-md">Python</h1><h2 class="text-sm text-slate-300 font-semibold">Adds rich language support for Python</h2></div></div>
+                    </div>
+                    <div class="inline-flex w-full bg-gradient-to-t from-zinc-900 via-zinc-800 to-transparent opacity-50 h-48 absolute bottom-0 flex items-end justify-center blur-lg"></div>
+                    <span class="text-white text-sm font-semibold tracking-wide absolute bottom-0">View 60k+ extensions in the <a class="underline text-sky-500">Extension Marketplace</a></span>
+                </div>
+            </div>
+
+            <div id="code_anylang" class="flex mt-28 items-center justify-center">
+                <div class="w-2/5 text-slate-200">
+                    <span>
+                        <h1 class="px-5 py-5 text-3xl font-bold text-sky-50">Code in Any Language</h1>
+                    </span>
+                    <span class="flex flex-col gap-4">
+                        <h2 class="pl-5 w-2/3 font-semibold text-sky-100">
+                            VS Code supports almost every major programming language. Several ship in the box, like JavaScript, TypeScript, CSS, and HTML, but extensions for others can be found in the VS Code Marketplace.
+                        </h2>
+                    </span>
+                </div>
+                <div class="w-3/5 bg-blue flex flex-col items-center justify-center relative">
+                    <div class="grid gap-4 grid-cols-3">
+                        <div class="justify-start items-center gap-4 flex px-10 rounded-lg hover:cursor-pointer"><img src="./assets/language-js.png" alt="" class="h-10 w-10"><h1 class="text-slate-100 font-bold text-md">JavaScript</h1></div>
+                        <div class="justify-start items-center gap-4 flex px-10 rounded-lg hover:cursor-pointer"><img src="./assets/language-ts.png" alt="" class="h-10 w-10"><h1 class="text-slate-100 font-bold text-md">TypeScript</h1></div>
+                        <div class="justify-start items-center gap-4 flex px-10 rounded-lg hover:cursor-pointer"><img src="./assets/language-python.png" alt="" class="h-10 w-10"><h1 class="text-slate-100 font-bold text-md">Python</h1></div>
+                        <div class="justify-start items-center gap-4 flex px-10 rounded-lg hover:cursor-pointer"><img src="./assets/language-cs.png" alt="" class="h-10 w-10"><h1 class="text-slate-100 font-bold text-md">C#</h1></div>
+                        <div class="justify-start items-center gap-4 flex px-10 rounded-lg hover:cursor-pointer"><img src="./assets/language-cpp.png" alt="" class="h-10 w-10"><h1 class="text-slate-100 font-bold text-md">C++</h1></div>
+                        <div class="justify-start items-center gap-4 flex px-10 rounded-lg hover:cursor-pointer"><img src="./assets/language-html.png" alt="" class="h-10 w-10"><h1 class="text-slate-100 font-bold text-md">HTML</h1></div>
+                        <div class="justify-start items-center gap-4 flex px-10 rounded-lg hover:cursor-pointer"><img src="./assets/language-java.png" alt="" class="h-10 w-10"><h1 class="text-slate-100 font-bold text-md">Java</h1></div>
+                        <div class="justify-start items-center gap-4 flex px-10 rounded-lg hover:cursor-pointer"><img src="./assets/language-json.png" alt="" class="h-10 w-10"><h1 class="text-slate-100 font-bold text-md">JSON</h1></div>
+                        <div class="justify-start items-center gap-4 flex px-10 rounded-lg hover:cursor-pointer"><img src="./assets/language-php.png" alt="" class="h-10 w-10"><h1 class="text-slate-100 font-bold text-md">PHP</h1></div>
+                        <div class="justify-start items-center gap-4 flex px-10 rounded-lg hover:cursor-pointer"><img src="./assets/language-markdown.png" alt="" class="h-10 w-10"><h1 class="text-slate-100 font-bold text-md">Markdown</h1></div>
+                        <div class="justify-start items-center gap-4 flex px-10 rounded-lg hover:cursor-pointer"><img src="./assets/language-powershell.png" alt="" class="h-10 w-10"><h1 class="text-slate-100 font-bold text-md">Powershell</h1></div>
+                        <div class="justify-start items-center gap-4 flex px-10 rounded-lg hover:cursor-pointer"><img src="./assets/language-yaml.png" alt="" class="h-10 w-10"><h1 class="text-slate-100 font-bold text-md">YAML</h1></div>
+                    </div>
+                </div>
+            </div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="flex flex-col gap-4 mt-10 mb-20 items-center justify-center w-full px-32 relative text-slate-200 font-semibold" id="footer">
+            <div class="flex items-center space-around w-full">
+                <div class="flex gap-4 w-4/5">
+                    <a><img src="./assets/x-icon.svg" alt="" class="h-5 w-5"></a>
+                    <a><img src="./assets/github-icon.svg" alt="" class="h-5 w-5"></a>
+                    <a><img src="./assets/youtube-icon.svg" alt="" class="h-5 w-5"></a>
+                </div>
+                <div class="w-1/5 flex justify-end">
+                    <a><img src="./assets/microsoft.svg" alt="" class="h-5 w-5"></a>
+                </div>
+            </div>
+            <div class="flex gap-4 items-center w-full text-sm">
+                <a href="">Support</a>
+                <a href="">Privacy</a>
+                <a href="">Terms of Use</a>
+                <a href="">License</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
